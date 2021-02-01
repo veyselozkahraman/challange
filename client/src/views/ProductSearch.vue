@@ -15,10 +15,12 @@
             v-on:keyup.enter="onEnter"
             solo
             clearable
+            @click:clear="onClearClicked"
             placeholder="Search"
             v-model="textToBeSearched"
-            prepend-icon="mdi-map-marker"
-          ></v-text-field>
+          >
+            <v-icon slot="prepend" color="rgba(158, 158, 158, 2)">mdi-feature-search-outline</v-icon>
+          </v-text-field>
         </div>
         <data-table v-bind:products="productsToBeRendered" v-bind:headers="headers" />
       </div>
@@ -77,6 +79,9 @@ export default {
       } else {
         this.productsToBeRendered = this.products;
       }
+    },
+    onClearClicked() {
+      this.productsToBeRendered = this.products;
     }
   }
 };
