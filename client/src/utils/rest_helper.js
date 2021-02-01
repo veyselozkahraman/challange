@@ -3,7 +3,7 @@ import Environment from "../config/environment";
 
 export default class RestHelper  {
   constructor() {
-    this.pth = Environment.baseUul;
+    this.pth = Environment.baseUrl;
   }
 
   post(path, data, headers) {

@@ -20,7 +20,7 @@
             prepend-icon="mdi-map-marker"
           ></v-text-field>
         </div>
-        <data-table v-bind:products="products" v-bind:headers="headers" />
+        <data-table v-bind:products="productsToBeRendered" v-bind:headers="headers" />
       </div>
     </v-main>
   </div>
@@ -55,12 +55,14 @@ export default {
         value: "title",
       },
     ],
-    products: undefined
+    products: undefined,
+    productsToBeRendered: undefined
   }),
   methods: {
     async fetchData () {
       try {
         const products = await getProducts();
+        this.productsToBeRendered = products;
         this.products = products;
       } catch {
         this.products = [];
@@ -70,8 +72,10 @@ export default {
     onEnter() {
       if (this.textToBeSearched !== undefined && this.textToBeSearched !== null) {
         this.loading = true;
-        this.products = subStringSearchForProducts(this.products, 'title', this.textToBeSearched);
+        this.productsToBeRendered = subStringSearchForProducts(this.products, 'title', this.textToBeSearched);
         this.loading = false;
+      } else {
+        this.productsToBeRendered = this.products;
       }
     }
   }
