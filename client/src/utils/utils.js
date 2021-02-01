@@ -1,5 +1,5 @@
-export const subStringSearchForProducts = (products, text) => {
+export const subStringSearchForProducts = (products, field, text) => {
   return products.filter((product) => {
-    return product.title.toLowerCase().search(text.toLowerCase()) > -1
+    return product[field].toLowerCase().search(text.toLowerCase()) > -1
   });
 }
