@@ -15,31 +15,31 @@ In general, Docker is used to containerize client and server parts.
 
 Port used for the server-side is 8081 and for the client-side is 8080. Please make sure that there are no processes working on these ports.
 
-* With Docker
-Requirements: Docker Desktop
-Since docker is used for containerization, you can use docker for building the project.
+* **With Docker**
+  * Requirements: Docker Desktop
+  * Since docker is used for containerization, you can use docker for building the project.
 
   * Clone the project
   * Download Docker desktop if you have not via [this link](https://docs.docker.com/get-docker/)
   * Run Docker Desktop
   * From the root directory of the project;
-    * Run app with command $ docker-compose up --build
+    * Run app with command `docker-compose up --build`
     * Go to <http://localhost:8080>
 
 
 
 
-* Without Docker
-Requirements: Node, npm
+* **Without Docker**
+  * Requirements: Node, npm
 
   * Clone the project
   * From the root directory of the project;
-    * Go to server folder with command $ cd server
-    * Install dependencies with command $ npm install
-    * Run server-side with command $ node server.js
+    * Go to server folder with command `cd server`
+    * Install dependencies with command `npm install`
+    * Run server-side with command `node server.js`
 
   * From the root directory of the project;
-    * Go to client folder with command $ cd client
-    * Install dependencies with command $ npm install
-    * Run client-side with command $ npm run serve
+    * Go to client folder with command `cd client`
+    * Install dependencies with command `npm install`
+    * Run client-side with command `npm run serve`
     * Go to <http://localhost:8080>
