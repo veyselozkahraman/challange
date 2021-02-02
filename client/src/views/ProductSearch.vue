@@ -31,7 +31,7 @@
 <script>
 import DataTable from "../components/DataTable.vue";
 import { getProducts } from "../api/api";
-import { subStringSearchForProducts } from "../utils/utils";
+import { subStringSearchForProducts, sortProductsArrayByField } from "../utils/utils";
 
 export default {
   name: "ProductSearch",
@@ -64,8 +64,9 @@ export default {
     async fetchData () {
       try {
         const products = await getProducts();
-        this.productsToBeRendered = products;
-        this.products = products;
+        const sortedProducts = sortProductsArrayByField(products, 'title');
+        this.productsToBeRendered = sortedProducts
+        this.products = sortedProducts;
       } catch {
         this.products = [];
       }
